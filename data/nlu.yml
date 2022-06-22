@@ -1,0 +1,245 @@
+version: "3.1"
+nlu:
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - morning
+    - evening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: book_room
+  examples: |
+    - i want a book a room for my stay
+    - I want to book a room
+    - i want to book a room
+    - i would like to book a room
+    - need a room
+    - can you book a room?
+    - book room
+    - book the room
+    - book a room
+    - Book a Room
+    - Book room for my stay
+    - book rooms
+    - book the rooms
+    - Book room
+    - book hotel
+    - book a hotel
+    - book A hotel
+
+- intent: location
+  examples: |
+    - i am in [delhi](location)
+    - i am in [uttar pradesh](location)
+    - find me hotel in [ranchi](location)
+    - nearby me in [delhi](location)
+    - [delhi](location)
+    - i want to book a hotel in [delhi](location)
+    - book a hotel in [delhi](location)
+    - i want to book a room in [delhi](location)
+    - I want to book a room in [rajasthan](location)
+    - i want to book a room in [uttar pradesh](location)
+    - i would like to book a room in [punjab](location)
+    - need a room in [Mumbai](location)
+    - can you book a room for me in [Kerala](location)
+    - book room on [andra Pradesh](location)
+    - book the room on [Jammu & kashmir](location)
+    - book a room in [west bengal](location)
+    - Book a Room in [telangana](location)
+    - [delhi](location)
+
+- intent: date
+  examples: |
+    - i want to check in [today](time)
+    - [today](time)
+    - i want to check in [31 march 2022](time)
+    - i want to come on [1 april](time)
+    - i want to come on [tomorrow](time)
+    - check me in [today](time)
+    - [30 march](time)
+    - [1 april 2022](time)
+    - [4 may](time)
+    - [2 april](time)
+    - [12 march](time)
+    - [tomorow](time)
+    - [tomorrow](time)
+    - [today](time)
+    - i want to checkout on [tomorrow](time)
+    - i want to check out on [7 april 2022](time)
+    - check me out on [9 april](time)
+    - [2 april](time)
+    - i will leave on [3 april](time)
+    - [7 may](time)
+    - [20 may](time)
+    - [3 april](time)
+    - check me out [tomorrow](time)
+
+- intent: book_number_rooms
+  examples: |
+    - i want to book [2](number) rooms for my stay
+    - i would like to book [1](number) room
+    - I want to book [2](number) rooms
+    - book [2](number) rooms for me
+    - need [1](number) room
+    - book [1](number) room
+    - book [2](number) rooms
+    - need [2](number) rooms to book
+    - [3](number) rooms
+    - [6](number) rooms
+    - [4](number) rooms
+
+- intent: book_room+location_hotel
+  examples: |
+    - i want to book a hotel in [delhi](location)
+    - book a hotel in [delhi](location)
+    - i want to book a room in [delhi](location)
+    - can you book a room in [delhi](location)
+    - i am in [delhi](location)
+    - i am in [uttar pradesh](location)
+    - find me hotel in [ranchi](location)
+    - nearby me in [delhi](location)
+    - I want to book a room in [rajasthan](location)
+    - i want to book a room in [uttar pradesh](location)
+    - i would like to book a room in [punjab](location)
+    - need a room in [Mumbai](location)
+    - can you book a room for me in [Kerala](location)
+    - book room on [andra Pradesh](location)
+    - book the room on [Jammu & kashmir](location)
+    - book a room in [west bengal](location)
+    
+- intent: book_room+location_hotel+check_in
+  examples: |
+    - i want to book a hotel in [delhi](location) at [31 march](time)
+    - book a hotel in [delhi](location) on [30 march](time)
+    - i want to book a room in [delhi](location) on [22 march](time)
+    - I want to book a room in [rajasthan](location) on [day after tomorrow](time)
+    - i want to book a room in [uttar pradesh](location) on [tomorrow](time)
+    - i would like to book a room in [punjab](location) on [today](time)
+    - need a room in [Mumbai](location) on [2 of july](time)
+    - can you book a room for me in [Kerala](location) on [tomorrow](time)
+    - book room on [andra Pradesh](location) on [5 may 2022](time)
+    - book the room on [Jammu & kashmir](location) on [1 june 2022](time)
+    - book a room in [west bengal](location) on [3 june](time)
+    - Book a Room in [telangana](location) on [7 july 2022]
+
+- intent: ask_id
+  examples: |
+    - what is the session id?
+    - session id
+    - tell me the conversation id
+    - what's my conversation id
+    - tell me session id
+    - may i know what is my session id
+    - What is the ID of this conversation?
+
+- intent: name
+  examples: |
+    - my name is [abhishek](name)
+    - [abhi](name)
+    - [pragya](name)
+    - my name is [shabzar](name)
+    - [jay Prakash](name)
+    - [abhishek anand](name)
+    - [abhi](name)
+
+- intent: ask_anything
+  examples: |
+    - can I ask you anything.
+    - what can you do?
+    - what can i do here?
+    - tell me anything 
+    - how can you help me?
+    - can I ask you anything?
+    - what can you do
+
+- intent: search_hotel
+  examples: |
+    - how do i book hotel.
+    - what is required for book hotel.
+    - can i book hotel.
+    - booking can be done here.
+
+- intent: price
+  examples: |
+    - what is price for  hotel?
+    - what is the price of single room in hotel?
+    - what is the  price for single day of accomadation.
+    - how much do i have to pay in advance.
+    - can i book without giving any advance payment.
+
+- intent: booking_process
+  examples: |
+    - what is booking process for hotel
+    - how do i book accomadation.
+    - can I book hotel through phone.
+    - i made booking but didn't receive the confirmation.
+    - how many rooms i can book at once.
+    - what is the requirements?
+
+- intent: payment
+  examples: |
+    - how can i make payment.
+    - is it secure to make transaction online.
+    - how do i pay for accomadation.
+    - which payment source is available for booking.
+    - can i make payment on arrival.
+    - can i make pre-payment.
+
+- intent: cancel_booking
+  examples: |
+    - can i cancel my booking.
+    - what is the charges for canceling the booking
+    - how many days before check in date i can cancel the booking
+    - can i reschdule the booking.
+    - change of booking date.
+
+

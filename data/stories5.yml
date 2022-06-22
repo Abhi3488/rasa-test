@@ -1,0 +1,55 @@
+
+version: "3.1"
+stories:
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room
+  - action: utter_book_room
+  - intent: name
+    entities:
+    - name: abhi
+    - PERSON: abhi
+  - slot_was_set:
+    - name: abhi
+  - action: action_name
+  - intent: location
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: action_location
+  - intent: date
+    entities:
+    - time: 3 june
+    - time: '2022-06-03T00:00:00.000+00:00'
+  - slot_was_set:
+    - time: '2022-06-03T00:00:00.000+00:00'
+  - action: action_check_in
+  - slot_was_set:
+    - check_in: '2022-06-03'
+  - intent: date
+    entities:
+    - time: 5 june
+    - time: '2022-06-05T00:00:00.000+00:00'
+  - slot_was_set:
+    - time: '2022-06-05T00:00:00.000+00:00'
+  - action: action_check_out
+  - slot_was_set:
+    - check_out: '2022-06-05'
+  - intent: book_number_rooms
+    entities:
+    - number: '000'
+  - slot_was_set:
+    - number: '000'
+  - action: action_room
+  - action: action_back
+  - intent: book_number_rooms
+    entities:
+    - number: '1'
+  - slot_was_set:
+    - number: '1'
+  - action: action_room
+  - intent: affirm
+  - action: utter_affirm

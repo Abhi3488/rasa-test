@@ -1,0 +1,22 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hi
+- intent: location
+  examples: |
+    - i want to book a hotel in [delhi](location)
+- intent: name
+  examples: |
+    - [abhishek](name)
+- intent: date
+  examples: |
+    - [today](time)
+    - 5th of [june](time)
+    - [tomorrow](time)
+- intent: book_number_rooms
+  examples: |
+    - [1](number) room
+- intent: affirm
+  examples: |
+    - yes

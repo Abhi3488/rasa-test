@@ -1,0 +1,237 @@
+version: "3.1"
+
+stories:
+- story: bot challenges
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: session_id
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_id
+  - action: action_session_id
+
+- story: booking
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room
+  - action: utter_book_room
+  - intent: name
+  - action: action_name
+  - intent: location
+  - action: action_location
+  - intent: date
+  - action: action_check_in
+  - intent: date
+  - action: action_check_out
+  - intent: book_number_rooms
+  - action: action_room
+  - intent: affirm
+  - action: utter_affirm
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room
+  - action: utter_book_room
+  - intent: name
+    entities:
+    - name: abhi
+  - slot_was_set:
+    - name: abhi
+  - action: action_name
+  - intent: location
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: action_location
+  - intent: date
+    entities:
+    - time: today
+    - time: '2022-05-24T00:00:00.000+00:00'
+  - slot_was_set:
+    - time: '2022-05-24T00:00:00.000+00:00'
+  - action: action_check_in
+  - slot_was_set:
+    - check_in: '2022-05-24T00:00:00.000+00:00'
+  - intent: date
+    entities:
+    - time: tomorrow
+    - time: '2022-05-25T00:00:00.000+00:00'
+  - slot_was_set:
+    - time: '2022-05-25T00:00:00.000+00:00'
+  - action: action_check_out
+  - slot_was_set:
+    - check_out: '2022-05-25T00:00:00.000+00:00'
+  - intent: book_number_rooms
+    entities:
+    - number: '3'
+  - slot_was_set:
+    - number: '3'
+  - action: action_room
+  - intent: affirm
+  - action: utter_affirm
+
+- story: combined_sm
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room+location_hotel
+  - action: action_location1
+  - intent: name
+  - action: action_name1
+  - intent: date
+  - action: action_check_in
+  - intent: date
+  - action: action_check_out
+  - intent: book_number_rooms
+  - action: action_room
+  - intent: affirm
+  - action: utter_affirm
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: location
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: action_location1
+  - intent: name
+    entities:
+    - name: abhishek
+  - slot_was_set:
+    - name: abhishek
+  - action: action_name1
+  - intent: date
+    entities:
+    - time: today
+    - time: '2022-05-26T00:00:00.000+00:00'
+  - slot_was_set:
+    - time: '2022-05-26T00:00:00.000+00:00'
+  - action: action_check_in
+  - slot_was_set:
+    - check_in: '2022-05-26'
+  - intent: date
+    entities:
+    - time: tomorrow
+    - time: '2022-05-27T00:00:00.000+00:00'
+  - slot_was_set:
+    - time: '2022-05-27T00:00:00.000+00:00'
+  - action: action_check_out
+  - slot_was_set:
+    - check_out: '2022-05-27'
+  - intent: book_number_rooms
+    entities:
+    - number: '1'
+  - slot_was_set:
+    - number: '1'
+  - action: action_room
+  - intent: affirm
+  - action: utter_affirm
+
+- story: combined_md
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room+location_hotel+check_in
+  - action: action_combined1
+  - intent: name 
+  - action: action_name0
+  - intent: date
+  - action: action_check_out
+  - intent: book_number_rooms
+  - action: action_room
+  - intent: affirm
+  - action: utter_affirm
+
+- story: interactive_story_3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room+location_hotel+check_in
+    entities:
+    - location: delhi
+    - time: today
+    - time: '2022-05-26T00:00:00.000+00:00'
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - time: '2022-05-26T00:00:00.000+00:00'
+  - action: action_combined1
+  - slot_was_set:
+    - check_in: '2022-05-26'
+  - intent: name
+    entities:
+    - name: abhishek
+  - slot_was_set:
+    - name: abhishek
+  - action: action_name0
+  - intent: date
+    entities:
+    - time: tomorrow
+    - time: '2022-05-27T00:00:00.000+00:00'
+  - slot_was_set:
+    - time: '2022-05-27T00:00:00.000+00:00'
+  - action: action_check_out
+  - slot_was_set:
+    - check_out: '2022-05-27'
+  - intent: book_number_rooms
+    entities:
+    - number: '2'
+  - slot_was_set:
+    - number: '2'
+  - action: action_room
+  - intent: affirm
+  - action: utter_affirm
+
+- story: FAQ
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_anything
+  - action: utter_ask_anything
+
+- story: FAQ2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_hotel
+  - action: utter_search_hotel
+
+- story: FAQ3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: price
+  - action: utter_price
+
+- story: FAQ4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: booking_process
+  - action: utter_booking_process
+
+- story: FAQ5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: payment
+  - action: utter_payment
+
+- story: FAQ6
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cancel_booking
+  - action: utter_cancel_booking

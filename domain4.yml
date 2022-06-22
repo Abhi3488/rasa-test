@@ -1,0 +1,91 @@
+version: '3.1'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- affirm
+- ask_id
+- book_number_rooms
+- book_room
+- book_room+location_hotel
+- book_room+location_hotel+check_in
+- bot_challenge
+- date
+- deny
+- goodbye
+- greet
+- location
+- name
+entities:
+- name
+- location
+- time
+- number
+slots:
+  number:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: number
+    max_value: 1.0
+    min_value: 0.0
+  location:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: location
+  check_in:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+      role: from
+  check_out:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+      role: to
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: name
+  time:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: time
+responses:
+  utter_greet:
+  - text: Hey! I am Bot helper,  How can I help you today?
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_book_room:
+  - text: Great, What is your name?
+  utter_affirm:
+  - text: Ok, give me a minute to find the filtered hotels for you. Thank you
+  utter_combined2:
+  - text: OK, You want the location of hotel in {location}, check in time be {check_in}. can you please tell me the  time of check out?
+  utter_default:
+  - text: Sorry I didn't get that. Can you rephrase?
+actions:
+- action_check_in
+- action_check_out
+- action_combined1
+- action_location
+- action_location1
+- action_name
+- action_name0
+- action_name1
+- action_room
+- action_session_id
+- utter_affirm
+- utter_book_room
+- utter_greet

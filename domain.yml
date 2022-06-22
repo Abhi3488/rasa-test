@@ -1,0 +1,184 @@
+version: '3.1'
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+- affirm
+- ask_id
+- book_number_rooms
+- book_room
+- book_room+location_hotel
+- book_room+location_hotel+check_in
+- bot_challenge
+- date
+- deny
+- goodbye
+- greet
+- location
+- name
+- ask_anything
+- search_hotel
+- price
+- booking_process
+- payment
+- cancel_booking
+
+entities:
+- name
+- number
+- location
+- time
+
+slots:
+  
+  number:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: number
+      # conditions:
+      # - active_loop: hotel_bot 
+      #   requested_slot: number
+    max_value: 1.0
+    min_value: 0.0
+ 
+  location:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: location
+      # conditions:
+      # - active_loop: hotel_bot
+      #   requested_slot: location
+
+  check_in:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+      role: from
+      # conditions:
+      # - active_loop: hotel_bot
+      #   requested_slot: check_in
+ 
+  check_out:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+      role: to
+      # conditions:
+      # - active_loop: hotel_bot
+      #   requested_slot: check_out
+ 
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: name
+      # conditions:
+      # - active_loop: hotel_bot
+      #   requested_slot: name
+ 
+  time:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: time
+responses:
+ 
+  utter_greet:
+  - text: "Hi, \
+          \ I am FareDown FHC. \
+          \ I can help you Book hotel, know about hotels, and etc.
+          \ Ask me anything."
+  
+  utter_goodbye:
+  - text: Bye
+  
+  utter_iamabot:
+  - text: I am a bot, powered by DEEPMINDZ.
+ 
+  utter_book_room:
+  - text: Great, What is your name?
+ 
+  utter_affirm:
+  - text: Ok, give me a minute to find the filtered hotels for you. Thank you
+ 
+  utter_combined2:
+  - text: OK, You want the location of hotel in {location}, check in time be {check_in}. can you please tell me the  time of check out?
+  
+  utter_default:
+  - text: Sorry I didn't get that. Can you rephrase?
+ 
+  utter_ask_anything:
+  - text: "* You can ask me anything, \
+          \ * Book hotel \
+          \ * prices \
+          \ * cancelation \
+          \ * Booking requirements \
+          \ * payment \
+          \ * reschule, etc"
+ 
+  utter_search_hotel:
+  - text: "You can book hotel through here, you just have give information here \
+          \ about your requirements and here you are with the list of hotels. In which you can \
+          \ see all information about pricing of hotels, check in and check out time and \
+          \ payment structure."
+ 
+  utter_booking_process:
+  - text: "First of all give information of the  requirements through which you \
+          \ can see the list of filtered hotels. You can book through here or \
+          \ call the hotel, you can book 5 rooms at once and if you want to book \
+          \ mare than that you have to contact the hotel. Each booking \
+          \ is available with a small amount of as of advance which is totally refundable*."
+ 
+  utter_payment:
+  - text: "You can make payment in advance or at the arrival of hotel \
+          \ select the hotel as per requirement after that you can make \
+          \ payment  through credit card, debit card or UPI."
+ 
+  utter_cancel_booking:
+  - text: "You can cancel the booking with full refund. there is no charges for the \
+          \ cancellation. you can also reschdule the booking anytime."
+
+  utter_price:
+  - text: "Price are vary from hotel to hotel. You can search and find the \
+          \ find out their prices according to their needs."
+
+actions:
+- action_check_in
+- action_check_out
+- action_location
+- action_name
+- action_room
+- action_session_id
+- utter_affirm
+- utter_book_room
+- utter_greet
+- action_name1
+- action_location1
+- action_combined1
+- action_name0
+- utter_price
+- utter_ask_anything
+- utter_booking_process
+- utter_search_hotel
+- utter_payment
+- utter_cancel_booking
+
+
+# form:
+#   hotel_form:
+#     required_slots:
+#     - name
+#     - check_in
+#     - check_out
+#     - location
+#     - number

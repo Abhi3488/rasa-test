@@ -1,0 +1,26 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hi
+- intent: book_room
+  examples: |
+    - book room
+- intent: name
+  examples: |
+    - [abhi](name)
+- intent: location
+  examples: |
+    - [delhi](location)
+- intent: date
+  examples: |
+    - [3 june](time)
+    - [5 june](time)
+    - [0000](time)
+- intent: book_number_rooms
+  examples: |
+    - [000](number) rooms
+    - [1](number) room
+- intent: affirm
+  examples: |
+    - yes
